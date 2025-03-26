@@ -1,7 +1,7 @@
 {
   "name": "atlas",
   "private": true,
-  "homepage": "https://ivanbriancruz.github.io/FRONTEND/",
+  "homepage": "https://ivanbriancruz.github.io/FRONTEND",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
