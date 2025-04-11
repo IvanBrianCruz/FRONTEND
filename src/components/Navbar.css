@@ -1,0 +1,87 @@
+.navbar {
+    background-color: #2c3e50;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navbar-brand {
+    font-size: 22px;
+    font-weight: bold;
+  }
+  
+  .navbar-user {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .dropdown {
+    position: relative;
+  }
+  
+  .dropdown-toggle {
+    background: none;
+    border: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    padding: 5px;
+  }
+  
+  .user-initial {
+    background-color: #3498db;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+  }
+  
+  .dropdown-arrow {
+    font-size: 12px;
+  }
+  
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    min-width: 180px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    margin-top: 10px;
+    z-index: 1000;
+  }
+  
+  .dropdown-item {
+    color: #333;
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .dropdown-item:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .dropdown-divider {
+    height: 1px;
+    background-color: #eee;
+    margin: 5px 0;
+  }
+  
+  .logout {
+    color: #e74c3c;
+  }
+  
+  .logout:hover {
+    background-color: #ffebee;
+  }

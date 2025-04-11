@@ -1,52 +1,38 @@
-import React, { useState } from 'react';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import IntroJS from './components/IntroJS';
-import IntroCSS from './components/IntroCSS';
-import IntroHTML from './components/IntroHTML';
-import Home from './components/Home';
-import Herramientas from './components/Herramientas';
-import Material from './components/Material';
-import Evaluacion from './components/Evaluacion';
-import Presentacion from './components/Presentacion';
-import 'bootstrap/dist/css/bootstrap.min.css';
-// index.jsx o App.jsx
-import './index.css';
-
-
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import Cookies from 'js-cookie';
+import Login from './components/Login';
+import Dashboard from './components/Dashboard';
+import './App.css';
 
 function App() {
-  const [currentTab, setCurrentTab] = useState('Home');
+  // Función para verificar si el usuario está autenticado
+  const isAuthenticated = () => {
+    return !!Cookies.get('token');
+  };
 
-  const renderContent = () => {
-    switch (currentTab) {
-      case 'Home':
-        return <Home />;
-      case 'introJS':
-        return <IntroJS />;
-      case 'introCSS':
-        return <IntroCSS />;
-      case 'introHTML':
-        return <IntroHTML />;
-      case 'Herramientas':
-        return <Herramientas />;
-      case 'Material':
-        return <Material />;
-        case 'Evaluacion':
-          return <Evaluacion />;
-          case 'Presentacion':
-          return <Presentacion />;
-      default:
-        return <Home />;
+  // Componente para rutas protegidas
+  const ProtectedRoute = ({ children }) => {
+    if (!isAuthenticated()) {
+      return <Navigate to="/login" />;
     }
+    return children;
   };
 
   return (
-    <div>
-      <Header setCurrentTab={setCurrentTab} />
-      <main>{renderContent()}</main>
-      <Footer />
-    </div>
+    <Router>
+      <div className="app">
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/dashboard" element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          } />
+          <Route path="/" element={<Navigate to={isAuthenticated() ? "/dashboard" : "/login"} />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
