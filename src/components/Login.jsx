@@ -56,7 +56,7 @@ const Login = () => {
     
     try {
       // Aquí debes reemplazar la URL con la URL de tu API
-      const response = await axios.post('http://localhost:3000/api/auth/login', {
+      const response = await axios.post('https://api-atlas.vercel.app/api/auth/login', {
         email,
         password
       });
