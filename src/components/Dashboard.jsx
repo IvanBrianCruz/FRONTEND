@@ -30,7 +30,7 @@ const Dashboard = () => {
         }
 
         // Si no está en cookies, lo verificamos con la API
-        const response = await axios.get('http://localhost:3000/api/auth/verify', {
+        const response = await axios.get('https://api-atlas.vercel.app/api/auth/verify', {
           headers: {
             Authorization: `Bearer ${token}`
           }
