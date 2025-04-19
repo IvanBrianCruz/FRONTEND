@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 import '../assets/css/Login.css'; // Estilos del template
+import 'boxicons/css/boxicons.min.css';
+
 
 const Auth = () => {
   const navigate = useNavigate();
