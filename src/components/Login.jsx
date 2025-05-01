@@ -77,7 +77,7 @@ const Auth = () => {
     }
 
     try {
-      await axios.post('https://api-atlas.vercel.app/api/auth/register', {
+      await axios.post('https://api-atlas.vercel.app/api/auth/registro', {
         nombre: registerName,
         email: registerEmail,
         password: registerPassword
