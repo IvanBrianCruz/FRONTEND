@@ -22,6 +22,10 @@ const Auth = () => {
   const [registerPassword, setRegisterPassword] = useState('');
   const [registerError, setRegisterError] = useState('');
   const [registerSuccess, setRegisterSuccess] = useState('');
+  const [registerRepeatPassword, setRegisterRepeatPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const [showRepeatPassword, setShowRepeatPassword] = useState(false);
+
 
   useEffect(() => {
     const token = Cookies.get('token');
@@ -64,8 +68,12 @@ const Auth = () => {
     setRegisterError('');
     setRegisterSuccess('');
 
-    if (!registerName || !registerEmail || !registerPassword) {
+    if (!registerName || !registerEmail || !registerPassword || !registerRepeatPassword) {
       return setRegisterError('Completa todos los campos');
+    }
+
+    if (registerPassword !== registerRepeatPassword) {
+      return setRegisterError('Las contraseñas no coinciden');
     }
 
     try {
@@ -75,12 +83,13 @@ const Auth = () => {
         password: registerPassword
       });
 
-      setRegisterSuccess('Registro exitoso, ya podés iniciar sesión');
+      setRegisterSuccess('Registro exitoso. Revisá tu email para activar la cuenta.');
       handleToggle('login');
     } catch (err) {
       setRegisterError(err.response?.data?.mensaje || 'Error al registrarse');
     }
   };
+
 
   return (
     <div className="auth-wrapper">
@@ -153,14 +162,34 @@ const Auth = () => {
             </div>
             <div className="input-box">
               <input
-                type="password"
-                placeholder="Password"
+                type={showPassword ? 'text' : 'password'}
+                placeholder="Contraseña"
                 value={registerPassword}
                 onChange={(e) => setRegisterPassword(e.target.value)}
                 required
               />
-              <i className='bx bxs-lock-alt'></i>
+              <i
+                className={`bx ${showPassword ? 'bx-show' : 'bx-hide'}`}
+                style={{ cursor: 'pointer' }}
+                onClick={() => setShowPassword(!showPassword)}
+              ></i>
             </div>
+
+            <div className="input-box">
+              <input
+                type={showRepeatPassword ? 'text' : 'password'}
+                placeholder="Repetir contraseña"
+                value={registerRepeatPassword}
+                onChange={(e) => setRegisterRepeatPassword(e.target.value)}
+                required
+              />
+              <i
+                className={`bx ${showRepeatPassword ? 'bx-show' : 'bx-hide'}`}
+                style={{ cursor: 'pointer' }}
+                onClick={() => setShowRepeatPassword(!showRepeatPassword)}
+              ></i>
+            </div>
+
             <button type="submit" className="btn">Registrar</button>
             {/*<p>o registrarse con redes sociales</p>
           <div className="social-icons">
