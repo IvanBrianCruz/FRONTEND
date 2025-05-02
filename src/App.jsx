@@ -3,6 +3,14 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import Cookies from 'js-cookie';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
+
+// importar paginas estáticas
+import ActivacionExitosa from './pages/ActivacionExitosa';
+import CuentaYaActivada from './pages/CuentaYaActivada';
+import TokenInvalido from './pages/TokenInvalido';
+import UsuarioNoEncontrado from './pages/UsuarioNoEncontrado';
+
+// importar estilos
 import './App.css';
 
 function App() {
@@ -30,6 +38,12 @@ function App() {
             </ProtectedRoute>
           } />
           <Route path="/" element={<Navigate to={isAuthenticated() ? "/dashboard" : "/login"} />} />
+       
+           {/* Redirigir a la página de inicio si la ruta no coincide */}
+           <Route path="/ActivacionExitosa" element={<ActivacionExitosa />} />
+          <Route path="/CuentaYaActivada" element={<CuentaYaActivada />} />
+          <Route path="/TokenInvalido" element={<TokenInvalido />} />
+          <Route path="/UsuarioNoEncontrado" element={<UsuarioNoEncontrado />} />
         </Routes>
       </div>
     </Router>
