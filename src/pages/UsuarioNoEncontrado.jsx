@@ -1,14 +1,17 @@
 import React from 'react';
-import '../assets/css/styledefecto.css'; // Estilos del template
+import BaseView from './BaseView';
 
-const UsuarioNoEncontrado = () => {
-  return (
-    <div className="container text-center mt-5">
-      <h2 className="text-danger">Usuario no encontrado</h2>
-      <p>Es posible que el enlace esté mal o el usuario ya no exista.</p>
-      <a href="/" className="btn btn-secondary mt-3">Volver al inicio</a>
-    </div>
-  );
-};
+const UsuarioNoEncontrado = () => (
+  <BaseView
+    delay={4}
+    icon="🔍"
+    title="Usuario no encontrado"
+    btnText="Volver al inicio"
+    btnHref="/"
+    btnClass="btn-secondary"
+  >
+    Puede que el enlace esté mal o el usuario no exista.
+  </BaseView>
+);
 
 export default UsuarioNoEncontrado;

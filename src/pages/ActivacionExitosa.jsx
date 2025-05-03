@@ -1,14 +1,17 @@
 import React from 'react';
-import '../assets/css/styledefecto.css'; // Estilos del template
+import BaseView from './BaseView';
 
-const ActivacionExitosa = () => {
-  return (
-    <div className="container text-center mt-5">
-      <h2 className="text-success mb-3">¡Cuenta activada correctamente!</h2>
-      <p>Ya podés iniciar sesión en el sistema del IES N°6.</p>
-      <a href="/login" className="btn btn-primary mt-3">Ir al inicio de sesión</a>
-    </div>
-  );
-};
+const ActivacionExitosa = () => (
+  <BaseView
+    delay={1}
+    icon="✅"
+    title="¡Cuenta activada con éxito!"
+    btnText="Ir al inicio de sesión"
+    btnHref="/login"
+    btnClass="btn-success"
+  >
+    ¡Ya podes iniciar sesión en el sistema del IES N°6!
+  </BaseView>
+);
 
 export default ActivacionExitosa;

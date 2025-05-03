@@ -1,0 +1,101 @@
+/* Importa una fuente moderna */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+/* RESET y BOX-SIZING */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Fondo degradado animado */
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.gradient-bg {
+  min-height: 100vh;
+  background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #4b006e, #a100ff);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+/* Card contenedor */
+.card {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  padding: 2rem;
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  transform: translateY(20px);
+  opacity: 0;
+  animation: fadeUp 0.8s forwards;
+}
+
+/* Retraso secuencial */
+.card.delay-1 { animation-delay: 0.3s; }
+.card.delay-2 { animation-delay: 0.5s; }
+.card.delay-3 { animation-delay: 0.7s; }
+.card.delay-4 { animation-delay: 0.9s; }
+
+@keyframes fadeUp {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Títulos y párrafos */
+.card h2 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+.card p {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Botones */
+.btn-custom {
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 2rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.btn-custom:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+.btn-success { background: #28a745; color: #fff; }
+.btn-info    { background: #17a2b8; color: #fff; }
+.btn-danger  { background: #dc3545; color: #fff; }
+.btn-warning { background: #ffc107; color: #212529; }
+.btn-secondary { background: #6c757d; color: #fff; }
+
+/* Responsive tweaks */
+@media (max-width: 576px) {
+  .card { padding: 1.5rem; }
+  .card h2 { font-size: 1.5rem; }
+  .btn-custom { width: 100%; }
+}
