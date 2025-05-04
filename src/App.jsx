@@ -9,6 +9,7 @@ import ActivacionExitosa from './pages/ActivacionExitosa';
 import CuentaYaActivada from './pages/CuentaYaActivada';
 import TokenInvalido from './pages/TokenInvalido';
 import UsuarioNoEncontrado from './pages/UsuarioNoEncontrado';
+import RegistroExitoso from './pages/RegistroExitoso';
 
 // importar estilos
 import './App.css';
@@ -44,6 +45,8 @@ function App() {
           <Route path="/CuentaYaActivada" element={<CuentaYaActivada />} />
           <Route path="/TokenInvalido" element={<TokenInvalido />} />
           <Route path="/UsuarioNoEncontrado" element={<UsuarioNoEncontrado />} />
+          <Route path="/registroExitoso" element={<RegistroExitoso />} />
+
         </Routes>
       </div>
     </Router>
