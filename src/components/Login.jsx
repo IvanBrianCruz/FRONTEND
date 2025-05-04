@@ -83,8 +83,10 @@ const Auth = () => {
         password: registerPassword
       });
 
-      setRegisterSuccess('Registro exitoso. Revisá tu email para activar la cuenta.');
-      handleToggle('login');
+      //setRegisterSuccess('Registro exitoso. Revisá tu email para activar la cuenta.');
+      //handleToggle('login');
+       // Redirijo a la pantalla de "Registro exitoso"
++     navigate('/registroExitoso');
     } catch (err) {
       setRegisterError(err.response?.data?.mensaje || 'Error al registrarse');
     }
