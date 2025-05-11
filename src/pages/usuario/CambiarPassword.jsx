@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import '../../assets/css/cssPages/RegistroExitoso.css'; // Asegúrate de que la ruta sea correcta
 
 const CambiarPassword = () => {
   const { token } = useParams();
@@ -32,7 +33,7 @@ const CambiarPassword = () => {
     <div className="gradient-bg">
       <div className="card delay-1">
         <h2>Establecer nueva contraseña</h2>
-        <form onSubmit={handleSubmit}>
+        <form className="resend-form" onSubmit={handleSubmit}>
           <input type="password" placeholder="Nueva contraseña" value={pass1} onChange={(e) => setPass1(e.target.value)} required />
           <input type="password" placeholder="Repetir contraseña" value={pass2} onChange={(e) => setPass2(e.target.value)} required />
           <button className="btn-custom btn-primary" type="submit">Guardar</button>

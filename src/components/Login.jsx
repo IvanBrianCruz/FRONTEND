@@ -126,7 +126,7 @@ const Auth = () => {
               <i className='bx bxs-lock-alt'></i>
             </div>
             <div className="forgot-link">
-              <a href="https://api-atlas.vercel.app/api/auth/solicitar-recuperacion">¿Olvidaste tu contraseña?</a>
+              <a href="/solicitar-recuperacion">¿Olvidaste tu contraseña?</a>
             </div>
             <button type="submit" className="btn">{loginLoading ? 'Cargando...' : 'Inicar session'}</button>
             {/*}
