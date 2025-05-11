@@ -94,7 +94,11 @@ const Auth = () => {
 
 
   return (
-    <div className="auth-wrapper">
+    {/* FONDO ANTIGUO */},
+    <div className="gradient-bg">
+     
+      {/* FONDO ANTIGUO*/}
+      {/*<div className="auth-wrapper">*/}
       <div className="container" ref={containerRef}>
         {/* LOGIN */}
         <div className="form-box login">
@@ -122,7 +126,7 @@ const Auth = () => {
               <i className='bx bxs-lock-alt'></i>
             </div>
             <div className="forgot-link">
-              <a href="#">¿Olvidaste tu contraseña?</a>
+              <a href="https://api-atlas.vercel.app/api/auth/solicitar-recuperacion">¿Olvidaste tu contraseña?</a>
             </div>
             <button type="submit" className="btn">{loginLoading ? 'Cargando...' : 'Inicar session'}</button>
             {/*}
@@ -217,6 +221,7 @@ const Auth = () => {
           </div>
         </div>
       </div>
+    
     </div>
   );
 };
