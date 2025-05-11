@@ -1,5 +1,5 @@
 import React from 'react';
-import '../assets/css/styledefecto.css';
+import '../assets/css/components/styledefecto.css';
 
 const BaseView = ({ delay, icon, title, children, btnText, btnHref, btnClass }) => (
   <div className="gradient-bg">

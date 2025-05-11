@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
-import '../../assets/css/cssPages/RegistroExitoso.css';
+import '../../assets/css/Usuarios/RegistroExitoso.css'; 
 
 const SolicitarRecuperacion = () => {
   const [email, setEmail] = useState('');
   const [msg, setMsg] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setMsg('');
+    setIsLoading(true);
+    
     try {
       const res = await fetch('https://api-atlas.vercel.app/api/auth/solicitar-recuperacion', {
         method: 'POST',
@@ -18,6 +21,8 @@ const SolicitarRecuperacion = () => {
       setMsg(res.ok ? '✅ Revisa tu correo para restablecer tu contraseña' : `❌ ${data.mensaje}`);
     } catch {
       setMsg('❌ Error al contactar al servidor');
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -27,13 +32,20 @@ const SolicitarRecuperacion = () => {
         <h2>Recuperar contraseña</h2>
         <form className="resend-form" onSubmit={handleSubmit}>
           <input
-           id="resend-email"
+            id="resend-email"
             type="email"
             placeholder="Ingresa tu email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            disabled={isLoading}
             required />
-          <button className="btn-custom btn-primary" type="submit">Enviar enlace</button>
+          <button 
+            className="btn-custom btn-primary" 
+            type="submit"
+            disabled={isLoading}
+          >
+            {isLoading ? 'Cargando...' : 'Enviar enlace'}
+          </button>
         </form>
         {msg && <p style={{ marginTop: '1rem' }}>{msg}</p>}
       </div>

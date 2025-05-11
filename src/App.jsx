@@ -4,14 +4,14 @@ import Cookies from 'js-cookie';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 
-// importar paginas estáticas
-import ActivacionExitosa from './pages/ActivacionExitosa';
-import CuentaYaActivada from './pages/CuentaYaActivada';
-import TokenInvalido from './pages/TokenInvalido';
-import UsuarioNoEncontrado from './pages/UsuarioNoEncontrado';
-import RegistroExitoso from './pages/RegistroExitoso';
-import SolicitarRecuperacion from './pages/usuario/SolicitarRecuperacion';
-import CambiarPassword from './pages/usuario/CambiarPassword';
+// importar paginas la vista de usuario
+import ActivacionExitosa from './pages/Usuarios/ActivacionExitosa';
+import CuentaYaActivada from './pages/Usuarios/CuentaYaActivada';
+import TokenInvalido from './pages/Usuarios/TokenInvalido';
+import UsuarioNoEncontrado from './pages/Usuarios/UsuarioNoEncontrado';
+import RegistroExitoso from './pages/Usuarios/RegistroExitoso';
+import SolicitarRecuperacion from './pages/Usuarios/SolicitarRecuperacion';
+import CambiarPassword from './pages/Usuarios/CambiarPassword';
 
 // importar estilos
 import './App.css';

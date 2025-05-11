@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 import Navbar from './Navbar';
-import './Dashboard.css';
+import '../assets/css/components/Dashboard.css';
 
 const Dashboard = () => {
   const [userData, setUserData] = useState(null);

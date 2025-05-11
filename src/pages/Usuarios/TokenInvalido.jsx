@@ -1,5 +1,5 @@
 import React from 'react';
-import BaseView from './BaseView';
+import BaseView from '../../components/BaseView';
 
 const TokenInvalido = () => (
   <BaseView
@@ -7,7 +7,7 @@ const TokenInvalido = () => (
     icon="❌"
     title="Token inválido o expirado"
     btnText="Solicitar nuevo enlace"
-    btnHref="/reenviar-activacion"
+    btnHref="/registroExitoso"
     btnClass="btn-warning"
   >
     El enlace no es válido. Solicitá uno nuevo si lo necesitás.

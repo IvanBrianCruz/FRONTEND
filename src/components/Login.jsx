@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Cookies from 'js-cookie';
-import '../assets/css/Login.css'; // Estilos del template
+import '../assets/css/components/Login.css'; // Estilos del template
 import 'boxicons/css/boxicons.min.css';
 
 
@@ -15,6 +15,7 @@ const Auth = () => {
   const [loginPassword, setLoginPassword] = useState('');
   const [loginError, setLoginError] = useState('');
   const [loginLoading, setLoginLoading] = useState(false);
+  const [showLoginPassword, setShowLoginPassword] = useState(false);
 
   // Estados del registro
   const [registerName, setRegisterName] = useState('');
@@ -86,7 +87,7 @@ const Auth = () => {
       //setRegisterSuccess('Registro exitoso. Revisá tu email para activar la cuenta.');
       //handleToggle('login');
        // Redirijo a la pantalla de "Registro exitoso"
-+     navigate('/registroExitoso');
+      navigate('/registroExitoso');
     } catch (err) {
       setRegisterError(err.response?.data?.mensaje || 'Error al registrarse');
     }
@@ -94,7 +95,6 @@ const Auth = () => {
 
 
   return (
-    {/* FONDO ANTIGUO */},
     <div className="gradient-bg">
      
       {/* FONDO ANTIGUO*/}
@@ -103,7 +103,7 @@ const Auth = () => {
         {/* LOGIN */}
         <div className="form-box login">
           <form onSubmit={handleLogin}>
-            <h1>Login</h1>
+            <h1>Inicio de session</h1>
             {loginError && <p className="error-message">{loginError}</p>}
             <div className="input-box">
               <input
@@ -117,13 +117,17 @@ const Auth = () => {
             </div>
             <div className="input-box">
               <input
-                type="password"
-                placeholder="Password"
+                type={showLoginPassword ? 'text' : 'password'}
+                placeholder="Contraseña"
                 value={loginPassword}
                 onChange={(e) => setLoginPassword(e.target.value)}
                 required
               />
-              <i className='bx bxs-lock-alt'></i>
+              <i
+                className={`bx ${showLoginPassword ? 'bx-show' : 'bx-hide'}`}
+                style={{ cursor: 'pointer' }}
+                onClick={() => setShowLoginPassword(!showLoginPassword)}
+              ></i>
             </div>
             <div className="forgot-link">
               <a href="/solicitar-recuperacion">¿Olvidaste tu contraseña?</a>

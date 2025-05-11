@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
-import './Navbar.css';
+import '../assets/css/components/Navbar.css';
 
 const Navbar = ({ userData }) => {
   const [menuOpen, setMenuOpen] = useState(false);

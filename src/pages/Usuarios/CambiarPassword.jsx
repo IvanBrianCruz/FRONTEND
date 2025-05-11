@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import '../../assets/css/cssPages/RegistroExitoso.css'; // Asegúrate de que la ruta sea correcta
+import '../../assets/css/Usuarios/RegistroExitoso.css'; // Asegúrate de que la ruta sea correcta
 
 const CambiarPassword = () => {
   const { token } = useParams();
